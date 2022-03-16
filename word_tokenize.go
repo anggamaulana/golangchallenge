@@ -73,6 +73,12 @@ func wordTokenizer(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	jsonEncode, _ := json.Marshal(Results{Data: results})
-	w.Write(jsonEncode)
+	jsonEncode, err := json.Marshal(Results{Data: results})
+
+	if err == nil {
+		w.Write(jsonEncode)
+	} else {
+		log.Fatalln(err)
+	}
+
 }
