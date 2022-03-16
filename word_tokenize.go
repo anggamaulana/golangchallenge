@@ -67,7 +67,7 @@ func wordTokenizerAndCount(w http.ResponseWriter, r *http.Request) {
 			Count: wordsCount[key],
 		})
 
-		if idx == 10 {
+		if idx == 9 {
 			break
 		}
 	}
