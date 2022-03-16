@@ -20,12 +20,12 @@ type Results struct {
 }
 
 func main() {
-	http.HandleFunc("/", wordTokenizer)
+	http.HandleFunc("/", wordTokenizerAndCount)
 	fmt.Println("Server start...")
 	http.ListenAndServe(":8080", nil)
 }
 
-func wordTokenizer(w http.ResponseWriter, r *http.Request) {
+func wordTokenizerAndCount(w http.ResponseWriter, r *http.Request) {
 
 	b, err := io.ReadAll(r.Body)
 	if err != nil {
